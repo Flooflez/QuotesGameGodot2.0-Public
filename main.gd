@@ -136,7 +136,6 @@ func _on_http_request_connect_request_completed(result, response_code, headers, 
 	if response_code == 200:
 		if checking_name:
 			if body.get_string_from_utf8() == "null":
-				print("Name is not taken")
 				checking_name = false
 				Firebase.join_game(http_connect, player_name)
 			else:

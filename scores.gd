@@ -2,6 +2,7 @@ extends Control
 
 @onready var http = $HTTPRequest
 @onready var http_checker = $HTTPRequestChecker
+@onready var http_curr_p_remover = $HTTPRemoveCurrentP
 
 @onready var next_button = $CanvasLayer/MarginContainer/MarginContainer/NextButton
 @onready var leader_board_container = $CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/LeaderboardContainer
@@ -35,6 +36,7 @@ func _on_http_request_checker_request_completed(result, response_code, headers, 
 	if response_code == 200:
 		if Firebase.data_dict["game_started"] == false:
 			main_menu_button.show()
+			waiting_label.hide()
 		elif not Firebase.data_dict.has("submitted"):
 			get_tree().change_scene_to_file("res://scenes/writing.tscn")
 		else:
@@ -100,7 +102,7 @@ func extract_scores(dictionary):
 	return scores
 
 func _on_next_button_pressed():
-	Firebase.clear_submissions(http)
+	Firebase.clear_current_player(http_curr_p_remover)
 	next_button.disabled = true
 
 func _on_main_menu_button_pressed():
@@ -109,3 +111,10 @@ func _on_main_menu_button_pressed():
 		Firebase.reset_all(http)
 	else:
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_http_remove_current_p_request_completed(result, response_code, headers, body):
+	if response_code == 200:
+		Firebase.clear_submissions(http)
+	else:
+		next_button.disabled = false

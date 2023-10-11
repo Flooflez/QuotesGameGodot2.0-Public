@@ -1,2 +1,11 @@
+res://scenes/main_menu.tscn
+res://scenes/lobby.tscn
+res://scenes/writing.tscn
+res://scenes/guessing_loading.tscn
+res://scenes/guessing.tscn
+res://scenes/answer_check.tscn
 res://scenes/scores.tscn
+res://scenes/guessing.gd
+res://scores.gd
 res://Firebase.gd
+res://main.gd

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1696984523
+::res://::1697031721
 answer_check.gd::GDScript::-1::1696970964::0::1::::<>Control<>::
 cap_fps.gd::GDScript::-1::1696444255::0::1::::<>Node<>::
 cozy caps.otf::FontFile::3367972672117300535::1695821181::1696354499::1::::<><>::
@@ -16,10 +16,10 @@ SKULL BONES Bold22.otf::FontFile::409663951892053100::1695820760::1696354499::1:
 Spicy Soup.otf::FontFile::7399068179892871620::1696792353::1696792353::1::::<><>::
 Start Scene.gd::GDScript::-1::1696793563::0::1::::<>Node2D<>::
 writing.gd::GDScript::-1::1696970982::0::1::::<>Node<>::
-::res://instances/::1696984470
+::res://instances/::1696948051
 leaderboard_label.tscn::PackedScene::8719393795023163899::1696948051::0::1::::<><>::res://main_theme.tres
 leaderboard_label_yellow.tscn::PackedScene::1099552583825788223::1696948051::0::1::::<><>::res://main_theme.tres
-::res://scenes/::1696984470
+::res://scenes/::1696974152
 answer_check.tscn::PackedScene::445911940679475950::1696974152::0::1::::<><>::res://answer_check.gd<>res://main_theme.tres<>uid://ddoftpef3n4h1::::res://Spicy Soup.otf<>uid://bn8qauvj8qacd::::res://cozy caps.otf
 guessing.gd::GDScript::-1::1696961919::0::1::::<>Control<>::
 guessing.tscn::PackedScene::7896442281803547722::1696974152::0::1::::<><>::res://main_theme.tres<>res://scenes/guessing.gd<>uid://ddoftpef3n4h1::::res://Spicy Soup.otf<>uid://bn8qauvj8qacd::::res://cozy caps.otf

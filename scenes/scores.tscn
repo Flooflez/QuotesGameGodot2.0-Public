@@ -84,7 +84,10 @@ theme = ExtResource("2_8eox8")
 theme_override_fonts/font = ExtResource("3_a0y3p")
 text = "WAITING FOR HOST..."
 
+[node name="HTTPRemoveCurrentP" type="HTTPRequest" parent="."]
+
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
 [connection signal="request_completed" from="HTTPRequestChecker" to="." method="_on_http_request_checker_request_completed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="request_completed" from="HTTPRemoveCurrentP" to="." method="_on_http_remove_current_p_request_completed"]

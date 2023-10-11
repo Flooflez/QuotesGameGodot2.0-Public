@@ -73,8 +73,7 @@ func check_started(http_request: HTTPRequest):
 func host_game(http_request: HTTPRequest):
 	http_request.request_completed.connect(self._host_completed)
 	var data = "true"
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/game_hosted.json?auth=" + ID_token, headers, HTTPClient.METHOD_PUT, data)
+	http_request.request(DATABASE_URL + "/game_hosted.json?auth=" + ID_token, [], HTTPClient.METHOD_PUT, data)
 
 func _host_completed(result, response_code, headers, body):
 	var response = json_to_response(body)
@@ -85,27 +84,23 @@ func _host_completed(result, response_code, headers, body):
 		print(response)
 
 func check_join_game(http_request: HTTPRequest, in_player_name):
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/users/" + in_player_name + ".json?auth=" + ID_token, headers, HTTPClient.METHOD_GET, "")
+	http_request.request(DATABASE_URL + "/users/" + in_player_name + ".json?auth=" + ID_token, [], HTTPClient.METHOD_GET, "")
 	
 func join_game(http_request: HTTPRequest, in_player_name):
 	player_name = str(in_player_name)
 	var data = JSON.stringify({player_name : {"score" : 0}})
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/users.json?auth=" + ID_token, headers, HTTPClient.METHOD_PATCH, data)
+	http_request.request(DATABASE_URL + "/users.json?auth=" + ID_token, [], HTTPClient.METHOD_PATCH, data)
 
 func start_game(http_request: HTTPRequest, no_rounds):
 	number_of_rounds = no_rounds
 	var data = "true"
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/game_started.json?auth=" + ID_token, headers, HTTPClient.METHOD_PUT, data)
+	http_request.request(DATABASE_URL + "/game_started.json?auth=" + ID_token, [], HTTPClient.METHOD_PUT, data)
 
 
 func submit_fake_quote(http_request: HTTPRequest, fake_quote, real_quotes):
 	player_fake_quote = str(fake_quote)
 	var data = JSON.stringify({player_name : {"fake" : player_fake_quote, "real" : real_quotes}})
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/submitted.json?auth=" + ID_token, headers, HTTPClient.METHOD_PATCH, data)
+	http_request.request(DATABASE_URL + "/submitted.json?auth=" + ID_token, [], HTTPClient.METHOD_PATCH, data)
 	
 func submit_guess(http_request: HTTPRequest, current_guess, right_answer, my_turn = false):
 	var correct_as_int = 0
@@ -118,21 +113,18 @@ func submit_guess(http_request: HTTPRequest, current_guess, right_answer, my_tur
 	curr_guess = current_guess
 	answer = right_answer
 	var data = JSON.stringify({player_name : correct_as_int})
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/guessed.json?auth=" + ID_token, headers, HTTPClient.METHOD_PATCH, data)
+	http_request.request(DATABASE_URL + "/guessed.json?auth=" + ID_token, [], HTTPClient.METHOD_PATCH, data)
 	
 func generate_question_order():
 	question_order = data_dict["users"].keys()
 	question_order.shuffle()
 	question_order_generated = true
 	current_q_index = 0
-	print("new question order: " + str(question_order))
 
 func start_guess(http_request: HTTPRequest):
 	var data = JSON.stringify(question_order[current_q_index])
 	data_dict["current_question_player"] = question_order[current_q_index]
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/current_question_player.json?auth=" + ID_token, headers, HTTPClient.METHOD_PUT, data)
+	http_request.request(DATABASE_URL + "/current_question_player.json?auth=" + ID_token, [], HTTPClient.METHOD_PUT, data)
 
 func award_points(http_request: HTTPRequest):
 	var current_player = data_dict["current_question_player"]
@@ -144,8 +136,7 @@ func award_points(http_request: HTTPRequest):
 			score_dict[current_player]["score"] += 100
 	
 	var data = JSON.stringify(score_dict)
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/users.json?auth=" + ID_token, headers, HTTPClient.METHOD_PUT, data)
+	http_request.request(DATABASE_URL + "/users.json?auth=" + ID_token, [], HTTPClient.METHOD_PUT, data)
 
 func clear_guesses(http_request: HTTPRequest):
 	http_request.request(DATABASE_URL + "/guessed.json?auth=" + ID_token , [], HTTPClient.METHOD_DELETE, "")
@@ -153,7 +144,11 @@ func clear_guesses(http_request: HTTPRequest):
 func clear_submissions(http_request: HTTPRequest):
 	http_request.request(DATABASE_URL + "/submitted.json?auth=" + ID_token , [], HTTPClient.METHOD_DELETE, "")
 
+func clear_current_player(http_request: HTTPRequest):
+	http_request.request(DATABASE_URL + "/current_question_player.json?auth=" + ID_token , [], HTTPClient.METHOD_DELETE, "")
+
+
+
 func reset_all(http_request: HTTPRequest):
 	var data = JSON.stringify({"game_started" : false, "game_hosted" : false })
-	var headers = ["Content-Type: application/json"]
-	http_request.request(DATABASE_URL + "/.json?auth=" + ID_token, headers, HTTPClient.METHOD_PUT, data)
+	http_request.request(DATABASE_URL + "/.json?auth=" + ID_token, [], HTTPClient.METHOD_PUT, data)
