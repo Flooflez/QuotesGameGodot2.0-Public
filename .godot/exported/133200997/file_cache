@@ -1,0 +1,11 @@
+res://instances/leaderboard_label.tscn::cc1f80d0be00cd6ef4c11cac874bba54::1696948051::res://.godot/exported/133200997/export-45120a4cab87978147ca254b7a120ee2-leaderboard_label.scn
+res://instances/leaderboard_label_yellow.tscn::12cdadd1ce893b1615ff65e4cecda4d3::1696948051::res://.godot/exported/133200997/export-76385bac0ba9ea8028d3354a1e956911-leaderboard_label_yellow.scn
+res://scenes/answer_check.tscn::ebc7ee3bbfc643b6e34d77b9694efeae::1696972757::res://.godot/exported/133200997/export-93e3b27116336d2fe81a41211ef2260a-answer_check.scn
+res://scenes/guessing.tscn::4802466ca4eda9d1587da6125cd576df::1696972757::res://.godot/exported/133200997/export-16a4f29be297f4fe73f9cbf7002c4036-guessing.scn
+res://scenes/guessing_loading.tscn::dc166fa227a21018e7c7d1f96c6334fd::1696972757::res://.godot/exported/133200997/export-d93c6c0476bf994cce0b147ac8a65a3e-guessing_loading.scn
+res://scenes/lobby.tscn::fd6999e0bd218de06a4b63bec389abda::1696972757::res://.godot/exported/133200997/export-f3d5c683a2834285b3c292f8847bd661-lobby.scn
+res://scenes/main_menu.tscn::26de8144dcb53f91e4b290604a32df41::1696972757::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
+res://scenes/scores.tscn::90a2387af4eb8dd71d632a3b74af369c::1696972757::res://.godot/exported/133200997/export-09346fd9495896d70324e21f3f89a931-scores.scn
+res://scenes/start_scene.tscn::b44a713ac20b5e382a795ff390cb6887::1696817565::res://.godot/exported/133200997/export-417a175ccf600cb30b1cb6a0cc8992df-start_scene.scn
+res://scenes/writing.tscn::59c4a492cba30fadbc2df23b03d517bd::1696972757::res://.godot/exported/133200997/export-a2a3290dc0e34f423fc63405951fedc6-writing.scn
+res://main_theme.tres::db5171ba48b93015da338148ef499c50::1696354256::res://.godot/exported/133200997/export-20b5b92c2f817caccb6dc24c0a7175e7-main_theme.res

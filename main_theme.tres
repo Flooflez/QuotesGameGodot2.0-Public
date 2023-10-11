@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bcndq30utxdb4"]
+
+[ext_resource type="FontFile" uid="uid://f3pdt5aumths" path="res://SKULL BONES Bold22.otf" id="1_7ax0i"]
+[ext_resource type="FontFile" uid="uid://bn8qauvj8qacd" path="res://cozy caps.otf" id="1_7lvvl"]
+
+[resource]
+default_font = ExtResource("1_7ax0i")
+default_font_size = 30
+/font_sizes/15 = 15
+/fonts/Unbold = ExtResource("1_7lvvl")
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_7lvvl")
+LineEdit/fonts/font = ExtResource("1_7lvvl")

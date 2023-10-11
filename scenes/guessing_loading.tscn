@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://y4pa1hgb38k6"]
+
+[ext_resource type="Script" path="res://scenes/load_question.gd" id="1_jkran"]
+[ext_resource type="Theme" path="res://main_theme.tres" id="2_pj2v6"]
+
+[node name="guessing_loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jkran")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_pj2v6")
+text = "LOADING QUESTION..."
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

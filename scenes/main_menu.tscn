@@ -1,0 +1,260 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1cyiw4aaj71t"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ytsqn"]
+[ext_resource type="Theme" path="res://main_theme.tres" id="2_55y4v"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ytsqn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="User Interface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main Menu" type="Control" parent="CanvasLayer/User Interface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/User Interface/Main Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -447.0
+offset_right = 447.0
+offset_bottom = 403.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="VboxContainer" type="VBoxContainer" parent="CanvasLayer/User Interface/Main Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Title" type="Label" parent="CanvasLayer/User Interface/Main Menu/MarginContainer/VboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 75
+text = "THE QUOTE GAME"
+horizontal_alignment = 1
+
+[node name="Host Menu Button" type="Button" parent="CanvasLayer/User Interface/Main Menu/MarginContainer/VboxContainer"]
+layout_mode = 2
+theme = ExtResource("2_55y4v")
+text = "Host"
+
+[node name="Connect Menu Button" type="Button" parent="CanvasLayer/User Interface/Main Menu/MarginContainer/VboxContainer"]
+layout_mode = 2
+theme = ExtResource("2_55y4v")
+text = "Connect"
+
+[node name="Connect Menu" type="Control" parent="CanvasLayer/User Interface"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/User Interface/Connect Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -447.0
+offset_right = 447.0
+offset_bottom = 403.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="VboxContainer" type="VBoxContainer" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Title" type="Label" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer/VboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 75
+text = "CONNECT"
+horizontal_alignment = 1
+
+[node name="Notif" type="Label" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 30
+text = "PLEASE HOST GAME FIRST"
+horizontal_alignment = 1
+
+[node name="Name Entry" type="LineEdit" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "ENTER YOUR NAME..."
+
+[node name="Connect Button" type="Button" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_55y4v")
+text = "Connect"
+
+[node name="NameWarning" type="Label" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 30
+text = "NAME CANNOT BE BLANK"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/User Interface/Connect Menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -131.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Connect Back to Main Button" type="Button" parent="CanvasLayer/User Interface/Connect Menu/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_55y4v")
+text = "   Back   "
+
+[node name="HTTPRequest(Connect)" type="HTTPRequest" parent="CanvasLayer/User Interface/Connect Menu"]
+
+[node name="HTTPRequest(Started Checker)" type="HTTPRequest" parent="CanvasLayer/User Interface/Connect Menu"]
+
+[node name="Host Menu" type="Control" parent="CanvasLayer/User Interface"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/User Interface/Host Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -447.0
+offset_right = 447.0
+offset_bottom = 403.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="VboxContainer" type="VBoxContainer" parent="CanvasLayer/User Interface/Host Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Title" type="Label" parent="CanvasLayer/User Interface/Host Menu/MarginContainer/VboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 75
+text = "HOST"
+horizontal_alignment = 1
+
+[node name="Notif" type="Label" parent="CanvasLayer/User Interface/Host Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 30
+text = "GAME ALREADY HOSTED"
+horizontal_alignment = 1
+
+[node name="Name Entry" type="LineEdit" parent="CanvasLayer/User Interface/Host Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "ENTER YOUR NAME..."
+
+[node name="Host Button" type="Button" parent="CanvasLayer/User Interface/Host Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_55y4v")
+text = "Host"
+
+[node name="NameWarning" type="Label" parent="CanvasLayer/User Interface/Host Menu/MarginContainer/VboxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_55y4v")
+theme_override_font_sizes/font_size = 30
+text = "NAME CANNOT BE BLANK"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/User Interface/Host Menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -131.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Host Back to Main Button" type="Button" parent="CanvasLayer/User Interface/Host Menu/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_55y4v")
+text = "   Back   "
+
+[node name="HTTPRequest(Host)" type="HTTPRequest" parent="CanvasLayer/User Interface/Host Menu"]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/User Interface/Main Menu/MarginContainer/VboxContainer/Host Menu Button" to="." method="_on_host_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/User Interface/Main Menu/MarginContainer/VboxContainer/Connect Menu Button" to="." method="_on_connect_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/User Interface/Connect Menu/MarginContainer/VboxContainer/Connect Button" to="." method="_on_connect_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/User Interface/Connect Menu/MarginContainer2/Connect Back to Main Button" to="." method="_on_connect_back_to_main_button_pressed"]
+[connection signal="request_completed" from="CanvasLayer/User Interface/Connect Menu/HTTPRequest(Connect)" to="." method="_on_http_request_connect_request_completed"]
+[connection signal="request_completed" from="CanvasLayer/User Interface/Connect Menu/HTTPRequest(Started Checker)" to="." method="_on_http_request_started_checker_request_completed"]
+[connection signal="pressed" from="CanvasLayer/User Interface/Host Menu/MarginContainer/VboxContainer/Host Button" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/User Interface/Host Menu/MarginContainer2/Host Back to Main Button" to="." method="_on_host_back_to_main_button_pressed"]
+[connection signal="request_completed" from="CanvasLayer/User Interface/Host Menu/HTTPRequest(Host)" to="." method="_on_http_request_host_request_completed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

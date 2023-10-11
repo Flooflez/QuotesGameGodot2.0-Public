@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc2colxrdsrdu"]
+
+[ext_resource type="Script" path="res://lobby.gd" id="1_h0wh2"]
+[ext_resource type="Theme" path="res://main_theme.tres" id="2_fjcux"]
+[ext_resource type="FontFile" uid="uid://bn8qauvj8qacd" path="res://cozy caps.otf" id="3_1dsb1"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h0wh2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Lobby" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Lobby"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Lobby/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Title" type="Label" parent="CanvasLayer/Lobby/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_fjcux")
+text = "WAITING FOR PLAYERS"
+
+[node name="Player Count" type="Label" parent="CanvasLayer/Lobby/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_fjcux")
+theme_override_fonts/font = ExtResource("3_1dsb1")
+theme_override_font_sizes/font_size = 20
+text = "Number of players: 1"
+
+[node name="Player Names" type="Label" parent="CanvasLayer/Lobby/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_fjcux")
+theme_override_fonts/font = ExtResource("3_1dsb1")
+horizontal_alignment = 1
+
+[node name="Host Buttons Container" type="MarginContainer" parent="CanvasLayer/Lobby"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Lobby/Host Buttons Container"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="Start Button Container" type="MarginContainer" parent="CanvasLayer/Lobby/Host Buttons Container/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="Start Button" type="Button" parent="CanvasLayer/Lobby/Host Buttons Container/HBoxContainer/Start Button Container"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_fjcux")
+text = "   START   "
+
+[node name="Label" type="Label" parent="CanvasLayer/Lobby/Host Buttons Container/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_fjcux")
+theme_override_fonts/font = ExtResource("3_1dsb1")
+text = "NUMBER OF ROUNDS:"
+
+[node name="Number of Rounds" type="SpinBox" parent="CanvasLayer/Lobby/Host Buttons Container/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_fjcux")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="HTTPPusher" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Lobby/Host Buttons Container/HBoxContainer/Start Button Container/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

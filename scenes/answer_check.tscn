@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://gmads23n7fcg"]
+
+[ext_resource type="Script" path="res://answer_check.gd" id="1_nvjtf"]
+[ext_resource type="Theme" path="res://main_theme.tres" id="1_tqdof"]
+[ext_resource type="FontFile" uid="uid://ddoftpef3n4h1" path="res://Spicy Soup.otf" id="2_hyta0"]
+[ext_resource type="FontFile" uid="uid://bn8qauvj8qacd" path="res://cozy caps.otf" id="3_0bus8"]
+
+[node name="answer_check" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvjtf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+text = "AND THE RESULTS ARE IN..."
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Quote 1" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+theme_override_fonts/font = ExtResource("2_hyta0")
+text = "quote 1"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Quote 2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+theme_override_fonts/font = ExtResource("2_hyta0")
+text = "quote 1"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Quote 3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+theme_override_fonts/font = ExtResource("2_hyta0")
+text = "quote 1"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Quote 4" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+theme_override_fonts/font = ExtResource("2_hyta0")
+text = "quote 1"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_right = 350
+
+[node name="NextButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer3"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+text = "NEXT QUESTION"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="MyTurnLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer5"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+theme_override_fonts/font = ExtResource("3_0bus8")
+text = "LET'S HOPE YOU FOOLED THOSE FOOLS"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="NotHostLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer4"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_tqdof")
+theme_override_fonts/font = ExtResource("3_0bus8")
+text = "WAITING FOR HOST..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestNotHost" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer3/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="HTTPRequestNotHost" to="." method="_on_http_request_not_host_request_completed"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://btj43ccuhpxov"]
+
+[ext_resource type="Script" path="res://scores.gd" id="1_63aac"]
+[ext_resource type="Theme" path="res://main_theme.tres" id="2_8eox8"]
+[ext_resource type="FontFile" uid="uid://bn8qauvj8qacd" path="res://cozy caps.otf" id="3_a0y3p"]
+
+[node name="scores" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_63aac")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestChecker" type="HTTPRequest" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_8eox8")
+text = "---- LEADERBOARD ----"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="LeaderboardContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="NextButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_8eox8")
+text = "     Next Round     "
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_8eox8")
+text = "   MAIN MENU   "
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 50
+
+[node name="WaitingLabel" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_8eox8")
+theme_override_fonts/font = ExtResource("3_a0y3p")
+text = "WAITING FOR HOST..."
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="HTTPRequestChecker" to="." method="_on_http_request_checker_request_completed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

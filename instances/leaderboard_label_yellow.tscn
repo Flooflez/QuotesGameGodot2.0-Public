@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://pwvp817o5xtn"]
+
+[ext_resource type="Theme" path="res://main_theme.tres" id="1_8akcd"]
+
+[node name="leaderboard_label_yellow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Leaderboard" type="Label" parent="."]
+layout_mode = 0
+theme = ExtResource("1_8akcd")
+theme_override_colors/font_color = Color(1, 0.760784, 0, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true

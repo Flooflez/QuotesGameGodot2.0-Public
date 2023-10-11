@@ -1,0 +1,32 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696984523
+answer_check.gd::GDScript::-1::1696970964::0::1::::<>Control<>::
+cap_fps.gd::GDScript::-1::1696444255::0::1::::<>Node<>::
+cozy caps.otf::FontFile::3367972672117300535::1695821181::1696354499::1::::<><>::
+export_presets.cfg::TextFile::-1::1696973937::0::1::::<><>::
+Firebase.gd::GDScript::-1::1696971505::0::1::::<>Node<>::
+icon.svg::CompressedTexture2D::3363417296756508822::1696354422::1696354428::1::::<><>::
+lobby.gd::GDScript::-1::1696969837::0::1::::<>Node2D<>::
+main.gd::GDScript::-1::1696972754::0::1::::<>Node<>::
+main_theme.tres::Theme::-1::1696354256::0::1::::<><>::
+ReadFile.gd::GDScript::-1::1696900015::0::1::::<>Node<>::
+README.md::TextFile::-1::1696470251::0::1::::<><>::
+scores.gd::GDScript::-1::1696971111::0::1::::<>Control<>::
+SKULL BONES Bold22.otf::FontFile::409663951892053100::1695820760::1696354499::1::::<><>::
+Spicy Soup.otf::FontFile::7399068179892871620::1696792353::1696792353::1::::<><>::
+Start Scene.gd::GDScript::-1::1696793563::0::1::::<>Node2D<>::
+writing.gd::GDScript::-1::1696970982::0::1::::<>Node<>::
+::res://instances/::1696984470
+leaderboard_label.tscn::PackedScene::8719393795023163899::1696948051::0::1::::<><>::res://main_theme.tres
+leaderboard_label_yellow.tscn::PackedScene::1099552583825788223::1696948051::0::1::::<><>::res://main_theme.tres
+::res://scenes/::1696984470
+answer_check.tscn::PackedScene::445911940679475950::1696974152::0::1::::<><>::res://answer_check.gd<>res://main_theme.tres<>uid://ddoftpef3n4h1::::res://Spicy Soup.otf<>uid://bn8qauvj8qacd::::res://cozy caps.otf
+guessing.gd::GDScript::-1::1696961919::0::1::::<>Control<>::
+guessing.tscn::PackedScene::7896442281803547722::1696974152::0::1::::<><>::res://main_theme.tres<>res://scenes/guessing.gd<>uid://ddoftpef3n4h1::::res://Spicy Soup.otf<>uid://bn8qauvj8qacd::::res://cozy caps.otf
+guessing_loading.tscn::PackedScene::1745311333767830247::1696974151::0::1::::<><>::res://scenes/load_question.gd<>res://main_theme.tres
+load_question.gd::GDScript::-1::1696899892::0::1::::<>Control<>::
+lobby.tscn::PackedScene::4969104303186573918::1696974151::0::1::::<><>::res://lobby.gd<>res://main_theme.tres<>uid://bn8qauvj8qacd::::res://cozy caps.otf
+main_menu.tscn::PackedScene::8989773435667321871::1696974151::0::1::::<><>::res://main.gd<>res://main_theme.tres
+scores.tscn::PackedScene::3740399016676807477::1696974152::0::1::::<><>::res://scores.gd<>res://main_theme.tres<>uid://bn8qauvj8qacd::::res://cozy caps.otf
+start_scene.tscn::PackedScene::1815072478551832010::1696817565::0::1::::<><>::res://Start Scene.gd<>res://main_theme.tres
+writing.tscn::PackedScene::6383476211984773584::1696974151::0::1::::<><>::res://writing.gd<>res://main_theme.tres<>uid://ddoftpef3n4h1::::res://Spicy Soup.otf

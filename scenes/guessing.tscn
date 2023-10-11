@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkrdir2m7r8dy"]
+
+[ext_resource type="Theme" path="res://main_theme.tres" id="1_ea5rk"]
+[ext_resource type="Script" path="res://scenes/guessing.gd" id="1_efjw3"]
+[ext_resource type="FontFile" uid="uid://ddoftpef3n4h1" path="res://Spicy Soup.otf" id="2_jlk1c"]
+[ext_resource type="FontFile" uid="uid://bn8qauvj8qacd" path="res://cozy caps.otf" id="4_y3tp0"]
+
+[node name="guessing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_efjw3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+text = "?? -- FIND THE IMPOSTER -- ??"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Guess 1" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+theme_override_colors/font_disabled_color = Color(1, 0.760784, 0, 1)
+theme_override_fonts/font = ExtResource("2_jlk1c")
+theme_override_font_sizes/font_size = 20
+text = "guess 1"
+
+[node name="Guess 2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+theme_override_colors/font_disabled_color = Color(1, 0.760784, 0, 1)
+theme_override_fonts/font = ExtResource("2_jlk1c")
+theme_override_font_sizes/font_size = 20
+text = "guess 2"
+
+[node name="Guess 3" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+theme_override_colors/font_disabled_color = Color(1, 0.760784, 0, 1)
+theme_override_fonts/font = ExtResource("2_jlk1c")
+theme_override_font_sizes/font_size = 20
+text = "guess 3"
+
+[node name="Guess 4" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+theme_override_colors/font_disabled_color = Color(1, 0.760784, 0, 1)
+theme_override_fonts/font = ExtResource("2_jlk1c")
+theme_override_font_sizes/font_size = 20
+text = "guess 4"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+
+[node name="SubmitGuessButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer3"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+text = "SUBMIT GUESS"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="MyTurnLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer5"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+theme_override_fonts/font = ExtResource("4_y3tp0")
+text = "HEY! THIS IS MY TURN!!!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="ShameLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme = ExtResource("1_ea5rk")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Guess 1" to="." method="_on_guess_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Guess 2" to="." method="_on_guess_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Guess 3" to="." method="_on_guess_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Guess 4" to="." method="_on_guess_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer3/SubmitGuessButton" to="." method="_on_submit_guess_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
